@@ -1,5 +1,14 @@
+import { useState } from 'react'
+import TextType from './TextType'
+
+const phrases = [
+  'Sculpting memorable digital interfaces with strategy, empathy, and bold aesthetics.',
+  'Designing expressive web experiences for ambitious brands.',
+  'Engineering pixel-perfect moments that move people to action.'
+]
+
 function Hero() {
-  const headline = 'Sculpting memorable digital interfaces with strategy, empathy, and bold aesthetics.'
+  const [activeHeadline, setActiveHeadline] = useState(phrases[0])
 
   return (
     <section id="home" className="hero">
@@ -12,11 +21,23 @@ function Hero() {
       </div>
       <div className="hero__content">
         <p className="hero__eyebrow">Portfolio 2025</p>
-        <h1 className="hero__headline" data-replicate={headline}>
-          {headline}
+        <h1 className="hero__headline" data-replicate={activeHeadline}>
+          <TextType
+            text={phrases}
+            as="span"
+            typingSpeed={44}
+            deletingSpeed={26}
+            pauseDuration={2400}
+            className="hero__text-type"
+            cursorCharacter="_"
+            cursorClassName="hero__cursor"
+            textColors={['#f4f1ff', '#eae4ff', '#fdfbff']}
+            onUpdate={(next) => setActiveHeadline(next === undefined ? phrases[0] : next)}
+            onSentenceComplete={(text) => setActiveHeadline(text)}
+          />
         </h1>
         <p className="hero__description">
-          I am a front-end engineer blending modern engineering practices with artistic direction. Every interaction is orchestrated to feel effortless, expressive, and unusually personal.
+          Sanjid Ahmmed
         </p>
         <div className="hero__cta-group">
           <a href="#projects" className="hero__cta hero__cta--primary">View Highlights</a>

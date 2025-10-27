@@ -225,6 +225,41 @@ main > * {
   pointer-events: none;
 }
 
+.hero__text-type {
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: inherit;
+}
+
+.hero__cursor {
+  color: rgba(244, 240, 255, 0.8);
+  text-shadow: 0 0 12px rgba(124, 92, 255, 0.9);
+  transform: translateY(-4px);
+}
+
+.text-type {
+  display: inline-flex;
+  align-items: center;
+  white-space: pre-wrap;
+  letter-spacing: inherit;
+}
+
+.text-type__text {
+  display: inline;
+}
+
+.text-type__cursor {
+  margin-left: 6px;
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.text-type__cursor--hidden {
+  opacity: 0;
+}
+
 .hero__description {
   color: rgba(231, 231, 243, 0.82);
   margin: 0;
